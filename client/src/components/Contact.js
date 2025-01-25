@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
 function Contact() {
   const [formData, setFormData] = useState({
     name: '',
@@ -12,7 +13,8 @@ function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-        const response = await axios.post('http://localhost:5000/api/contact', formData);
+        //const response = await axios.post('http://localhost:5000/api/contact', formData);
+        const response = await axios.get(`${API_URL}/api/contact`,formData);
         if (response.data) {
           setStatus('¡Mensaje enviado con éxito!');
           setFormData({ name: '', email: '', message: '' });

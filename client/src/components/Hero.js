@@ -18,7 +18,7 @@ function Hero() {
           WILMAR RUIZ
         </h1>
         <p className="text-xl md:text-3xl mb-8 text-blue-100">
-          Desarrollador Web Full Stack
+          Ingeniero de Sistemas, Desarrollador Web Full Stack
         </p>
         <button 
           onClick={() => document.getElementById('contacto').scrollIntoView({ behavior: 'smooth' })}

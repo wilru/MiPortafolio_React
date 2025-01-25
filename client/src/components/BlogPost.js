@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+
 function BlogPost() {
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -10,7 +12,8 @@ function BlogPost() {
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/blog/${id}`);
+        //const response = await axios.get(`http://localhost:5000/api/blog/${id}`);
+        const response = await axios.get(`${API_URL}/api/blog/${id}`);
         setPost(response.data);
       } catch (error) {
         console.error('Error fetching post:', error);

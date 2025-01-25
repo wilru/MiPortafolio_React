@@ -72,6 +72,8 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';  // Importa Link para la navegación
 import axios from 'axios';
 
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+
 function BlogList() {
   const [posts, setPosts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -80,7 +82,7 @@ function BlogList() {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/blog');
+        const response = await axios.get(`${API_URL}/api/blog`);
         setPosts(response.data);
       } catch (error) {
         console.error('Error fetching blog posts:', error);
