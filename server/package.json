@@ -19,5 +19,8 @@
     "nodemon": "^3.1.9",
     "pg": "^8.13.1",
     "server": "file:"
+  },
+  "engines": {
+    "node": "18.x"
   }
 }
